@@ -32,6 +32,26 @@ class _MyApp8State extends State<MyApp8> {
               title: Text(_itens[index]["titulo"]),
               subtitle: Text(_itens[index]["subtitulo"]),
               leading: Icon(Icons.account_box),
+              onTap: (){
+                print("Indice: $index");
+
+                showDialog(
+                    context: context,
+                    builder: (context){
+                      return AlertDialog(
+                        title: Text("Título $index", style: TextStyle(color: Colors.blueAccent),),
+                        contentPadding: EdgeInsets.all(30),
+
+                        content: Text("Conteúdo de teste do Alert"),
+
+                        actions: [
+                          FlatButton(onPressed: (){}, child: Text("Sim")),
+                          FlatButton(onPressed: (){Navigator.pop(context);}, child: Text("Não")),
+                        ],
+                      );
+                }
+                );
+              },
             );
           },
         ),
